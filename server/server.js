@@ -25,8 +25,7 @@ app.use((req, res, next) => {
   next();
 })
 
-app.use('/', routes);
-
+// app.use('/', routes);
 
 // **************************************************************************** //
 
@@ -34,7 +33,8 @@ app.use('/', routes);
 //                    Serving Our Build File                       //  
 
 app.use(express.static(path.join(__dirname, '../client/build')));
-app.get('*', (req, res) => {
+
+app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/build/index.html'));
 })
 
